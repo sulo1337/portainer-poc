@@ -2,6 +2,6 @@ version: '3'
 services:
   nginx:
     container_name: nginx-1
-    image: nginx:1.26.1
+    image: nginx:1.27.0
     ports:
       - 9001:80
