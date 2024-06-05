@@ -1,0 +1,20 @@
+version: '3.8'
+volumes:
+  portainer_data:
+    external: true
+networks:
+  portainer_managed:
+    external: true
+services:
+  portainer:
+    container_name: portainer
+    image: 'portainer/portainer-ce:2.20.3'
+    restart: always
+    ports:
+      - 9000:9000
+      - 8000:8000
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - portainer_data:/data
+    networks:
+      - portainer_managed
